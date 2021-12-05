@@ -5,7 +5,6 @@ public class Call implements Comparator<Call> {
     private final int id;
     private int duration;
     private int rank;
-    private int redirected;
 
     /**
      * Constructor for call: rank can be 0, 1 or 2, while id is from 0 to 200 (exclusive)
@@ -15,7 +14,6 @@ public class Call implements Comparator<Call> {
         this.duration = duration;
         this.rank = new Random().nextInt(3);
         this.id = new Random().nextInt(200);
-        redirected = 0;
     }
 
     public int getDuration() {
@@ -57,17 +55,5 @@ public class Call implements Comparator<Call> {
                 " duration=" + duration +
                 ", rank=" + rank +
                 '}';
-    }
-
-    public int getRedirected() {
-        return redirected;
-    }
-
-    public void setRedirected(int redirected) {
-        this.redirected = redirected;
-    }
-
-    public void increaseRedirected() {
-        this.redirected++;
     }
 }

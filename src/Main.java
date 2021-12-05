@@ -34,7 +34,6 @@ public class Main {
             return;
         }
 
-
         System.out.println("Press C to start or X to end.");
         String next = scanner.next();
 
@@ -55,9 +54,9 @@ public class Main {
 
     public static void handleCall(Call call) {
         switch (call.getRank()) {
-            case 0 : respondentHandle(call); break;
-            case 1 : managerHandle(call); break;
-            case 2 : directorHandle(call); break;
+            case 0 -> respondentHandle(call);
+            case 1 -> managerHandle(call);
+            case 2 -> directorHandle(call);
         }
     }
 
@@ -69,9 +68,9 @@ public class Main {
             }
         }
         switch (call.getRank()) {
-            case 0 : callsResp.add(call); break;
-            case 1 : callsManager.add(call); break;
-            case 2 : callsDirector.add(call); break;
+            case 0 -> callsResp.add(call);
+            case 1 -> callsManager.add(call);
+            case 2 -> callsDirector.add(call);
         }
     }
 
