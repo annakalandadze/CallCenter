@@ -21,8 +21,11 @@ public class CallHandler implements Runnable {
     @Override
     public void run() {
         try {
+            employee.setFree(false);
             Thread.sleep(this.call.getDuration() * 1000L);
             this.employee.setFree(true);
+            System.out.println(employee.getClass().getSimpleName() + " finished processing call with id: " + call.getId());
+            Main.pollQueue(this.employee);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

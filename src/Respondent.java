@@ -1,6 +1,13 @@
 public class Respondent extends Employee {
+
     public Respondent(int name, boolean status) {
         super(name, status);
+    }
+
+    @Override
+    public void handle(Call call) {
+        System.out.println("Respondent will handle call with id: " + call.getId());
+        super.handle(call);
     }
 
     public Respondent() {}

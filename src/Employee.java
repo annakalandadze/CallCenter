@@ -31,4 +31,10 @@ public abstract class Employee {
     public void setFree(boolean free) {
         this.isFree = free;
     }
+
+    public void handle(Call call) {
+        CallHandler callHandler = new CallHandler(this, call);
+        Thread thread = new Thread(callHandler);
+        thread.start();
+    }
 }
