@@ -7,6 +7,7 @@
 public abstract class Employee {
     private int name;
     private boolean isFree;
+    private Call call;
 
     public Employee() {
     }
@@ -36,5 +37,13 @@ public abstract class Employee {
         CallHandler callHandler = new CallHandler(this, call);
         Thread thread = new Thread(callHandler);
         thread.start();
+    }
+
+    public Call getCall() {
+        return call;
+    }
+
+    public void setCall(Call call) {
+        this.call = call;
     }
 }

@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.Random;
 
@@ -5,6 +6,7 @@ public class Call implements Comparator<Call> {
     private final int id;
     private int duration;
     private int rank;
+    private LocalDateTime startTime;
 
     /**
      * Constructor for call: rank can be 0, 1 or 2, while id is from 0 to 200 (exclusive)
@@ -51,9 +53,14 @@ public class Call implements Comparator<Call> {
 
     @Override
     public String toString() {
-        return "Call { " + id +
-                " duration=" + duration +
-                ", rank=" + rank +
-                '}';
+        return "Call id is " + this.id + ", duration is " + this.duration + ".";
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
 }

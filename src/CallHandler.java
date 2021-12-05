@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 public class CallHandler implements Runnable {
     private final Employee employee;
     private final Call call;
@@ -21,11 +23,14 @@ public class CallHandler implements Runnable {
     @Override
     public void run() {
         try {
+            call.setStartTime(LocalDateTime.now());
             employee.setFree(false);
+            employee.setCall(call);
             Thread.sleep(this.call.getDuration() * 1000L);
             this.employee.setFree(true);
+            employee.setCall(null);
             System.out.println(employee.getClass().getSimpleName() + " finished processing call with id: " + call.getId());
-            Main.pollQueue(this.employee);
+            CallCenter.pollQueue(this.employee);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
